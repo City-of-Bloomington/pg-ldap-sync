@@ -1,3 +1,8 @@
+"""Sync user accounts from LDAP to postgres
+"""
+__copyight__ = '2019 City of Bloomington, Indiana'
+__license__  = 'GPL-3.0-or-later'
+
 import configparser
 import psycopg2
 import LdapService

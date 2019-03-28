@@ -1,0 +1,10 @@
+[LDAP]
+url      = ldaps://domain.org:636
+user     = admin@domain.org
+pass     = password
+base_dn  = DC=org,DC=domain
+group_dn = CN=Custom Group,OU=Groups,DC=org,DC=domain
+
+[POSTGRES]
+uri  = postgres://
+role = ldap_users

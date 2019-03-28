@@ -1,3 +1,8 @@
+"""Handles communication with LDAP
+"""
+__copyight__ = '2019 City of Bloomington, Indiana'
+__license__  = 'GPL-3.0-or-later'
+
 import ldap
 from typing import List
 

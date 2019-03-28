@@ -1,3 +1,8 @@
+"""Handles communication with the postgres server
+"""
+__copyight__ = '2019 City of Bloomington, Indiana'
+__license__  = 'GPL-3.0-or-later'
+
 import psycopg2
 import psycopg2.extras
 from psycopg2 import sql
