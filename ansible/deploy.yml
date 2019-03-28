@@ -1,0 +1,26 @@
+---
+- hosts: "ckan"
+  become: "yes"
+  roles:
+    - "City-of-Bloomington.postgresql"
+
+  tasks:
+  # pg_sync only works with python 3
+   - name: "Install python3 dependencies"
+     apt:
+       name: "{{ item }}"
+       state: "present"
+     with_items:
+       - "python3-ldap"
+       - "python3-psycopg2"
+
+    - name: "Create database user"
+      become: "yes"
+      become_user: "postgres"
+      postgresql_user:
+        name:     "{{ ma_db.username }}"
+        password: "{{ ma_db.password }}"
+        state: "present"
+        role_attr_flags: "LOGIN"
+      no_log: "True"
+...
