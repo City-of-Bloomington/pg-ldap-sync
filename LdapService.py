@@ -1,6 +1,7 @@
 import ldap
+from typing import List
 
-def connection(url, username, password):
+def connection(url: str, username: str, password: str) -> ldap.ldapobject.SimpleLDAPObject:
     connection = ldap.initialize(url, 0);
     connection.set_option(ldap.OPT_DEBUG_LEVEL,      0);
     connection.set_option(ldap.OPT_PROTOCOL_VERSION, 3);
@@ -10,7 +11,7 @@ def connection(url, username, password):
     connection.simple_bind_s(username, password)
     return connection
 
-def members(connection, base_dn, group):
+def members(connection: ldap.ldapobject.SimpleLDAPObject, base_dn: str, group: str) -> List[str]:
     usernames = [];
     filter    = '(&(objectClass=user)(memberOf:1.2.840.113556.1.4.1941:=%s))' % group
     attrs     = ['sAMAccountName']

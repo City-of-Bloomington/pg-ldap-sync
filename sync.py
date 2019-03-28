@@ -1,14 +1,15 @@
 import configparser
-from LdapService import *
+import LdapService
 
 config = configparser.ConfigParser()
 config.read('config.ini')
 
-ad      =  connection(config['LDAP']['url' ],
+ad      =  LdapService.connection(config['LDAP']['url' ],
                       config['LDAP']['user'],
                       config['LDAP']['pass']);
 
-users   = members(ad, config['LDAP']['base_dn'],
+
+users   = LdapService.members(ad, config['LDAP']['base_dn'],
                       config['LDAP']['group_dn']);
 
 print(users)
